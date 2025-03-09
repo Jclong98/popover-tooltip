@@ -1,0 +1,70 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 50px;
+  border: 1px solid #ccc;
+}
+
+.tooltip {
+  --gap: 8px;
+
+  background-color: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  display: none;
+
+  /* position styling */
+  position: fixed;
+  position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+
+  &.topCenter {
+    justify-self: anchor-center;
+    bottom: anchor(top);
+    margin-block-end: var(--gap);
+  }
+
+  &.topLeft {
+    bottom: anchor(top);
+    left: anchor(left);
+    margin-block-end: var(--gap);
+  }
+
+  &.topRight {
+    bottom: anchor(top);
+    right: anchor(right);
+    margin-block-end: var(--gap);
+  }
+
+  &.bottomCenter {
+    justify-self: anchor-center;
+    top: anchor(bottom);
+    margin-block-start: var(--gap);
+  }
+
+  &.bottomLeft {
+    top: anchor(bottom);
+    left: anchor(left);
+    margin-block-start: var(--gap);
+  }
+
+  &.bottomRight {
+    top: anchor(bottom);
+    right: anchor(right);
+    margin-block-start: var(--gap);
+  }
+
+  &.left {
+    align-self: anchor-center;
+    right: anchor(left);
+    margin-inline-end: var(--gap);
+  }
+
+  &.right {
+    align-self: anchor-center;
+    left: anchor(right);
+    margin-inline-start: var(--gap);
+  }
+}
