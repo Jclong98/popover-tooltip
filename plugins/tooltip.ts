@@ -1,6 +1,6 @@
 import type { Directive } from "vue";
 
-const POSITIONS = [
+export const POSITIONS = [
   "topCenter",
   "topLeft",
   "topRight",
@@ -9,11 +9,12 @@ const POSITIONS = [
   "bottomRight",
   "left",
   "right",
-];
+] as const;
+export type Position = (typeof POSITIONS)[number];
 
-function findFirstValidPosition(modifiers: Record<string, boolean>) {
+function findFirstValidPosition(modifiers: Record<Position, boolean>) {
   for (const key of Object.keys(modifiers)) {
-    if (POSITIONS.includes(key)) {
+    if (POSITIONS.includes(key as Position)) {
       return key;
     }
   }
@@ -29,10 +30,8 @@ function findTooltip(el: HTMLElement) {
   return document.querySelector(`[style*="position-anchor: ${anchorName}"]`);
 }
 
-const vTooltip: Directive = {
+const vTooltip: Directive<any, any, Position> = {
   mounted(el, binding) {
-    console.log({ el, binding });
-
     const id = Math.random().toString(36).substring(2, 15);
     const anchorName = `--anchor-${id}`;
     el.style.anchorName = anchorName;

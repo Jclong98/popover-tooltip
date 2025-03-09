@@ -41,3 +41,15 @@ const showFirstButton = ref(true);
     </button>
   </div>
 </template>
+
+<style scoped>
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 50px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 200px;
+}
+</style>

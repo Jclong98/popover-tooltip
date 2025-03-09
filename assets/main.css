@@ -1,20 +1,13 @@
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 50px;
-  border: 1px solid #ccc;
-}
-
 .tooltip {
   --gap: 8px;
 
   background-color: #333;
   color: white;
+  border: none;
   padding: 8px 12px;
   border-radius: 4px;
   white-space: nowrap;
-  display: none;
+  /* display: none; */
 
   /* position styling */
   position: fixed;
