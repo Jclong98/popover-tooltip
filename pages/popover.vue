@@ -1,7 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const container = useTemplateRef("container");
+const { style } = useDraggable(container);
+</script>
 
 <template>
-  <div class="container">
+  <div class="container" ref="container" :style="style" style="position: fixed">
     <JPopover position="topCenter" :is-open="true">
       <template #activator="{ toggle, isOpen, positionAnchor }">
         <!-- @vue-expect-error anchor-name not yet implemented -->
@@ -19,7 +22,6 @@
 .container {
   border: 1px solid #ccc;
   padding: 20px;
-  margin: 200px;
   display: flex;
 }
 </style>
