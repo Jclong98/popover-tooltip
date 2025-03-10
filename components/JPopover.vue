@@ -63,10 +63,3 @@ onMounted(() => {
     <slot></slot>
   </div>
 </template>
-
-<style scoped>
-:where(.popover) {
-  margin: 0;
-  inset: unset;
-}
-</style>

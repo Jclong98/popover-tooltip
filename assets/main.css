@@ -7,6 +7,8 @@
   padding: 8px 12px;
   border-radius: 4px;
   white-space: nowrap;
+  margin: 0;
+  inset: unset;
   /* display: none; */
 
   /* position styling */
@@ -27,8 +29,7 @@
 
   &.topRight {
     bottom: anchor(top);
-    /* right: anchor(right); */
-    justify-self: anchor-center;
+    right: anchor(right);
     margin-block-end: var(--gap);
   }
 

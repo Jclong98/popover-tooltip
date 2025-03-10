@@ -39,6 +39,8 @@ const vTooltip: Directive<any, any, Position> = {
     const tooltip = document.createElement("div");
     tooltip.innerText = binding.value;
 
+    // HINT IS EXPERIMENTAL
+    tooltip.popover = "hint";
     tooltip.classList.add("tooltip");
     tooltip.classList.add(findFirstValidPosition(binding.modifiers));
 
@@ -48,11 +50,11 @@ const vTooltip: Directive<any, any, Position> = {
     el.after(tooltip);
 
     el.addEventListener("mouseenter", () => {
-      tooltip.style.display = "block";
+      tooltip.showPopover();
     });
 
     el.addEventListener("mouseleave", () => {
-      tooltip.style.display = "none";
+      tooltip.hidePopover();
     });
   },
   updated(el, binding) {
