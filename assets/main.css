@@ -27,7 +27,8 @@
 
   &.topRight {
     bottom: anchor(top);
-    right: anchor(right);
+    /* right: anchor(right); */
+    justify-self: anchor-center;
     margin-block-end: var(--gap);
   }
 

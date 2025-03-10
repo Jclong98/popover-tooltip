@@ -8,7 +8,7 @@ const props = defineProps<{
 const isOpen = defineModel("isOpen", { default: false });
 
 const id = useId();
-const positionAnchor = computed(() => `--anchor-${id}`);
+const anchorName = computed(() => `--anchor-${id}`);
 const popover = useTemplateRef("popover");
 
 function open() {
@@ -35,7 +35,15 @@ onMounted(() => {
       toggle,
       isOpen,
       id,
-      positionAnchor,
+      anchorName,
+      props: {
+        'aria-describedby': id,
+        'aria-expanded': isOpen,
+        'aria-haspopup': true,
+        'aria-controls': id,
+        onClick: () => toggle(),
+        style: { anchorName },
+      },
     }"
   ></slot>
 
@@ -48,7 +56,7 @@ onMounted(() => {
     :class="[props.position]"
     :style="{
       // @ts-expect-error anchor-name not yet implemented
-      'position-anchor': positionAnchor,
+      'position-anchor': anchorName,
     }"
     @toggle="isOpen = $event.newState == 'open'"
   >
